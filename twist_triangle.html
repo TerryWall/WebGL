@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>2D Sierpinski Gasket</title>
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+void
+main()
+{
+    gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+void
+main()
+{
+    gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+}
+</script>
+
+<script type="text/javascript" src="../../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../../Common/initShaders.js"></script>
+<script type="text/javascript" src="../../Common/MV.js"></script>
+<script type="text/javascript" src="twist_triangle_ff.js"></script>
+</head>   
+
+<body>
+<h2>Assignment 1</h2>
+<p>This assignment has been tested on Chrome and Firefox.</p>
+<div style="padding:20px 20px 20px 20px;">
+Recursive steps<br> 0 <input id="slider" type="range" min="0" max="5" step="1" value="0" onchange="setDivide(this.value, 'numstep')" />
+ <span id="numstep" >0</span>
+</div>
+<div style="padding:20px 20px 20px 20px;">
+Theta<br> 0 <input id="angle" type="range" min="0" max="1000" step="1" value="0" onchange="setTheta(this.value, 'dispangle')" />
+ <span id="dispangle">0</span>
+</div>
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
